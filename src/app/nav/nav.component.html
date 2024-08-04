@@ -1,0 +1,31 @@
+<header>
+    <div class="bg-blue-600 w-full p-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="">
+                <a class="md:text-2xl text-white no-underline font-bold">LOGO</a>
+            </div>
+
+            <nav class="hidden md:flex">
+                <ul class="flex justify-between">
+
+                    @for (item of lists; track $index) {
+                    <li class="list-none md:px-4"><a class="text-white" [routerLink]="item.routerName" routerLinkActive="bg-pink-500 md:p-3 text-white">{{item.name}}</a></li>
+                    }
+
+                </ul>
+            </nav>
+            <!-------->
+
+            <button (click)="togol()" class="md:hidden hover:bg-black hover:text-white  bg-white text-black font-bold p-2">burgerMenu</button>
+        </div>
+        <nav class="md:hidden">
+            <ul class="" [class]="isClicked?'flex-col justify-between pt-3':'hidden'">
+
+                @for (item of lists; track $index) {
+                <li class="w-full  list-none py-4"><a class="text-xl font-medium hover:bg-slate-100 hover:text-black text-white" [routerLink]="item.routerName">{{item.name}}</a></li>
+                }
+
+            </ul>
+        </nav>
+    </div>
+</header>
